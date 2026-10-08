@@ -1,4 +1,6 @@
-# Photo Creatives
+# Guru Skills
+
+Набор скиллов Guru.AI для AI-агентов. Сейчас доступен `photo-creatives` — создание рекламных фотокреативов.
 
 Готовые рекламные фото для Яндекс Директа: берём исходную фотографию, при необходимости меняем образ через Nano Banana Pro (Kie.ai), накладываем русский текст существующим макетом Guru.AI и сохраняем PNG.
 
@@ -25,7 +27,7 @@
 
 Передайте агенту этот запрос целиком:
 
-> Установи https://github.com/easylaneof/photo-creatives в отдельную локальную папку. Сначала прочитай INSTALL.md и AGENTS.md, выполни установку и проверку всех трёх форматов. Прочитай .agents/skills/photo-creatives/SKILL.md. Проведи меня по FIRST_RUN.md: покажи демо в трёх форматах, затем помоги сделать креатив из моего фото. Начни без API-ключа и без платных генераций.
+> Установи https://github.com/easylaneof/guru-skills в отдельную локальную папку. Сначала прочитай INSTALL.md и AGENTS.md, выполни установку и проверку всех трёх форматов. Прочитай .agents/skills/photo-creatives/SKILL.md. Проведи меня по FIRST_RUN.md: покажи демо в трёх форматах, затем помоги сделать креатив из моего фото. Начни без API-ключа и без платных генераций.
 
 Агент установит Python-зависимости, Remotion и браузер для рендера. Если Python, Git или Node.js отсутствуют, поможет установить их для вашей ОС. Аккаунт Kie.ai и ключ создаёт владелец; агент не может получить их автоматически.
 
@@ -60,8 +62,8 @@
 Установка (macOS/Linux; на Windows используйте `py -3 setup.py`):
 
 ```bash
-git clone https://github.com/easylaneof/photo-creatives.git
-cd photo-creatives
+git clone https://github.com/easylaneof/guru-skills.git
+cd guru-skills
 python3 setup.py
 ```
 
