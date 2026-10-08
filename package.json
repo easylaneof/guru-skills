@@ -1,0 +1,11 @@
+{
+  "name": "guru-skills",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "setup": "node setup.mjs",
+    "test": "node --test",
+    "typecheck": "npm --prefix remotion run lint"
+  }
+}

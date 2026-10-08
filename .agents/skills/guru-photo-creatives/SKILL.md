@@ -23,14 +23,10 @@ description: Генерирует рекламные фото из локаль�
 
 Фото, приложенное к чату, сохрани в `input/`. Если агент не видит приложенный файл на диске, попроси пользователя указать локальный путь. Для URL нужно непосредственно изображение, не страница просмотра облачного диска.
 
-Python: `.venv/bin/python` на macOS/Linux; `.venv\Scripts\python.exe` на Windows.
+Все скрипты запускаются через Node.js 22 или новее: `node helpers/<скрипт>.mjs`. Python и виртуальное окружение не нужны.
 
 ```bash
-.venv/bin/python helpers/generate_assets.py \
-  --image-input input/portrait.jpg \
-  --prompt "Same person as the reference, preserve facial identity. Holding roses, soft daylight, photorealistic, no text or logos." \
-  --name portrait-roses \
-  --size 3:4
+node helpers/generate_assets.mjs --image-input input/portrait.jpg --prompt "Same person as the reference, preserve facial identity. Holding roses, soft daylight, photorealistic, no text or logos." --name portrait-roses --size 3:4
 ```
 
 `--image-input` принимает также HTTP(S) URL и JSON-сайдкар от предыдущей генерации. Локальный PNG/JPG/WebP автоматически загружается в Kie.ai. Для сайдкара сначала используется лежащий рядом локальный оригинал; ссылка — запасной вариант. Ссылки провайдера могут истекать. Ошибка ссылки не повод создавать новый исходный портрет: используй сохранённое фото.
@@ -62,7 +58,7 @@ Python: `.venv/bin/python` на macOS/Linux; `.venv\Scripts\python.exe` на Win
 - `copy.text_scale: "0.8"` уменьшает заголовок и подзаголовок; CTA остаётся прежним. Используй, если текст перекрывает важную часть фото.
 
 ```bash
-.venv/bin/python helpers/render.py briefs/portrait-roses-minuta-1x1.json
+node helpers/render.mjs briefs/portrait-roses-minuta-1x1.json
 ```
 
 Фактический путь выводится в конце лога. Скрипт группирует результаты внутри `output/`, неизвестные визуалы попадают в `prochee/`. Повторный рендер того же ID заменяет PNG; для отдельного варианта используй отдельный ID. Для трёх форматов создай три брифа на одном ассете, без трёх платных генераций.

@@ -41,7 +41,7 @@
 
 > Установи https://github.com/easylaneof/guru-skills в отдельную локальную папку. Сначала прочитай INSTALL.md и AGENTS.md, выполни установку и проверку всех трёх форматов. Прочитай .agents/skills/guru-photo-creatives/SKILL.md. Проведи меня по FIRST_RUN.md: покажи демо в трёх форматах, затем помоги сделать креатив из моего фото. Начни без API-ключа и без платных генераций.
 
-Агент установит Python-зависимости, Remotion и браузер для рендера. Если Python, Git или Node.js отсутствуют, поможет установить их для вашей ОС. Аккаунт Kie.ai и ключ создаёт владелец; агент не может получить их автоматически.
+Агент установит Remotion и браузер для рендера. Если Git или Node.js отсутствуют, поможет установить их для вашей ОС. Аккаунт Kie.ai и ключ создаёт владелец; агент не может получить их автоматически.
 
 ## Как пользоваться
 
@@ -71,22 +71,20 @@
 
 ## Ручные команды
 
-Установка (macOS/Linux; на Windows используйте `py -3 setup.py`):
+Нужны только Git и Node.js 22 или новее с npm. Python, pip и виртуальное окружение не требуются.
+
+Установка (одинаковые команды для macOS, Linux и Windows):
 
 ```bash
 git clone https://github.com/easylaneof/guru-skills.git
 cd guru-skills
-python3 setup.py
+node setup.mjs
 ```
 
 Генерация из локального фото (платный запрос Kie.ai, ключ в `.env`):
 
 ```bash
-.venv/bin/python helpers/generate_assets.py \
-  --image-input input/portrait.jpg \
-  --prompt "Same person as in the reference photo, preserve facial identity. Holding a bouquet of roses, soft daylight, photorealistic. No text or logos." \
-  --name portrait-roses \
-  --size 3:4
+node helpers/generate_assets.mjs --image-input input/portrait.jpg --prompt "Same person as in the reference photo, preserve facial identity. Holding a bouquet of roses, soft daylight, photorealistic. No text or logos." --name portrait-roses --size 3:4
 ```
 
 Для ссылки замените `input/portrait.jpg` на прямой URL изображения. Локальный файл загружается на сервер Kie.ai; ссылку Kie.ai скачивает самостоятельно. Генерации расходуют баланс Kie.ai. Исходники должны быть доступны провайдеру; защищённая страница облачного диска не является прямой ссылкой на фото.
@@ -94,15 +92,15 @@ python3 setup.py
 Скопируйте `examples/poster-1x1.json` в `briefs/portrait-minuta-1x1.json`, замените `id` на `portrait-minuta-1x1` и `assets.after_image` на `assets/portrait-roses.png`. Для готового фото просто скопируйте его в `remotion/public/assets/` и укажите его имя в брифе.
 
 ```bash
-.venv/bin/python helpers/render.py briefs/portrait-minuta-1x1.json
+node helpers/render.mjs briefs/portrait-minuta-1x1.json
 ```
 
-На Windows Python окружения находится в `.venv\Scripts\python.exe`. Все команды выполняются из корня репозитория. Схема брифа и проверка макета описаны в [скилле](.agents/skills/guru-photo-creatives/SKILL.md).
+Все команды выполняются из корня репозитория через Node.js 22 или новее; Python не нужен. Схема брифа и проверка макета описаны в [скилле](.agents/skills/guru-photo-creatives/SKILL.md).
 
 ## Проверки и ограничения
 
 ```bash
-.venv/bin/python -m unittest discover -s tests
+npm test
 npm --prefix remotion run lint
 ```
 
