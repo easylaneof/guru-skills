@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+output/
+remotion/build/
+remotion/public/assets/*
+!remotion/public/assets/.gitkeep
+briefs/*
+!briefs/.gitkeep
+input/*
+!input/.gitkeep

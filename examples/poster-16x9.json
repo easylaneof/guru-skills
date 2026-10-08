@@ -1,0 +1,30 @@
+{
+  "id": "example-minuta-16x9",
+  "template": "PosterStill",
+  "platform": "16x9",
+  "format": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "duration_seconds": 4
+  },
+  "assets": {
+    "after_image": "demo.svg"
+  },
+  "copy": {
+    "headline": "Фотосессия с ИИ",
+    "headline_accent": "за 1 минуту",
+    "subline": "с нашим ИИ фото-редактором",
+    "gift_pill": "2 фото в подарок",
+    "cta_button": "Попробовать →",
+    "object_fit": "cover",
+    "object_position": "center 28%"
+  },
+  "brand": {
+    "badge_text": "Guru.AI · ИИ-фото"
+  },
+  "render_options": {
+    "frame_for_still": 0,
+    "output_format": "png"
+  }
+}
