@@ -35,7 +35,7 @@ def main():
     subprocess.run([str(python), '-m', 'unittest', 'discover', '-s', 'tests'], cwd=ROOT, check=True)
     for fmt in ('1x1', '16x9', '9x16'):
         subprocess.run([str(python), 'helpers/render.py', f'examples/poster-{fmt}.json'], cwd=ROOT, check=True)
-    print('Готово. Примеры: output/prochee/example/. Скилл: .agents/skills/photo-creatives/SKILL.md')
+    print('Готово. Примеры: output/prochee/example/. Скилл: .agents/skills/guru-photo-creatives/SKILL.md')
     print('Для генерации укажите свой KIE_AI_API_KEY в .env. Ключ не нужен для наложения текста.')
 
 
